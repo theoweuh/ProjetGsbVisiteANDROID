@@ -15,10 +15,9 @@ public class Visiteur implements Serializable {
     public int tel;
 //
 
-    public Visiteur(String password, String username, String email, int tel){
+    public Visiteur(String password, String username){
         this.password = password;
         this.username = username;
-        this.email = email;
-        this.tel = tel;
+
     }
 }

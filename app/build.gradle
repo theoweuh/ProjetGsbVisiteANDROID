@@ -4,6 +4,9 @@ plugins {
 
 android {
     compileSdk 32
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.example.projetgsbvisite"
@@ -26,6 +29,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
 
 dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
