@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.projetgsbvisite.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private String userName;
     private String token;
     private String password;
+    private String listVisiteur;
 
 
     @Override
@@ -37,16 +40,19 @@ public class MainActivity extends AppCompatActivity {
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                email = new Visiteur(.);
                 userName = binding.editTextTextPersonName.getText().toString();
                 password = binding.editTextTextPassword.getText().toString();
                 GsbVisiteService service =
                         RetrofitClientInstance.getRetrofitInstance().create(GsbVisiteService.class);
-                Call<Token> call = service.getToken(new Visiteur(password, userName));
+                Call<Token> call = service.getToken(new Visiteur(password, userName,));
                 call.enqueue(new Callback<Token>(){
                     @Override
                     public void onResponse(Call<Token> call, Response<Token> response){
                         Token monToken = response.body();
                         token = monToken.getToken();
+
                         Intent myIntent = new Intent(MainActivity.this, VisiteurActivity.class);
                         myIntent.putExtra("userName", userName);
                         myIntent.putExtra("token", token);
