@@ -2,7 +2,9 @@ package com.example.projetgsbvisite;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Token {
+import java.io.Serializable;
+
+public class Token implements Serializable {
     @SerializedName("token")
     String token;
     public Token(String token) {
@@ -12,5 +14,7 @@ public class Token {
     public String getToken() {
         return token;
     }
+
+    public String getBearerToken() {return "Bearer " + token;}
 }
 

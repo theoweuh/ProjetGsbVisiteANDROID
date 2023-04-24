@@ -2,10 +2,8 @@ package com.example.projetgsbvisite;
 
 import android.media.session.MediaSession;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,7 +16,7 @@ import retrofit2.http.POST;
 public interface GsbVisiteService {
 
     @GET("visiteurs")
-    Call<Visiteur> getVisiteurs(@Header("Authorization") String authorization);
+    Call<Visiteurs> getVisiteurs(@Header("Authorization") String authorization);
 
 
     @POST("login_check")
